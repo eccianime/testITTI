@@ -1,10 +1,22 @@
-import {View, Text} from 'react-native';
-import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { List, Details } from '../screens';
+import { useTheme } from '@react-navigation/native';
+
+const { Navigator, Screen } = createStackNavigator();
 
 export default function BaseStack() {
+  const { colors } = useTheme();
   return (
-    <View>
-      <Text>BaseStack</Text>
-    </View>
+    <Navigator
+      screenOptions={{
+        headerShown: false,
+        cardStyle: {
+          backgroundColor: colors.background,
+        },
+      }}
+    >
+      <Screen name="List" component={List} />
+      <Screen name="Details" component={Details} />
+    </Navigator>
   );
 }
