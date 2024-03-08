@@ -1,16 +1,16 @@
-import { View, Text } from 'react-native';
-import React from 'react';
-import { Button } from '@gluestack-ui/themed';
-import { useNavigation } from '@react-navigation/native';
+import { VStack } from '@gluestack-ui/themed';
+import { Platform } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Header, SearchForm, SearchResults } from '../components';
 
 export default function List() {
-  const { navigate } = useNavigation();
+  const { top, bottom } = useSafeAreaInsets();
+
   return (
-    <View>
-      <Text>List</Text>
-      <Button onPress={() => navigate('Details')}>
-        <Text>Go To Details</Text>
-      </Button>
-    </View>
+    <VStack mt={Platform.OS === 'android' ? '$3' : top} mb={bottom} px={'$4'} flex={1}>
+      <Header />
+      <SearchForm />
+      <SearchResults />
+    </VStack>
   );
 }
