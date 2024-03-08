@@ -1,10 +1,14 @@
-import {View, Text} from 'react-native';
-import React from 'react';
+import { config } from '@gluestack-ui/config';
+import { GluestackUIProvider } from '@gluestack-ui/themed';
+import { NavigationContainer } from '@react-navigation/native';
+import BaseStack from './src/navigation/BaseStack';
 
 export default function App() {
   return (
-    <View>
-      <Text>App</Text>
-    </View>
+    <GluestackUIProvider config={config}>
+      <NavigationContainer>
+        <BaseStack />
+      </NavigationContainer>
+    </GluestackUIProvider>
   );
 }
