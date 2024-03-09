@@ -11,6 +11,7 @@ import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { getMovies } from '../redux/list/actions';
 import { setData } from '../redux/list/slice';
+import fontBoldConfig from '../config/fontBoldConfig';
 
 export default function SearchForm() {
   const [movieTitle, setMovieTitle] = useState<string>('');
@@ -37,10 +38,10 @@ export default function SearchForm() {
   return (
     <>
       <HStack justifyContent="space-between" w={'$full'} mb={'$2'}>
-        <Text size="lg" fontFamily="Urbanist-Bold">
+        <Text size="lg" {...fontBoldConfig}>
           Ingrese el nombre:
         </Text>
-        <Text size="lg" fontFamily="Urbanist-Bold">
+        <Text size="lg" {...fontBoldConfig}>
           Ingrese el año:
         </Text>
       </HStack>
@@ -69,7 +70,7 @@ export default function SearchForm() {
         borderRadius={'$full'}
         mb={'$2'}
       >
-        <ButtonText fontSize={'$lg'} fontFamily="Urbanist-Bold">
+        <ButtonText fontSize={'$lg'} {...fontBoldConfig}>
           {isLoading ? 'Cargando...' : 'Buscar'}
         </ButtonText>
       </Button>
@@ -78,8 +79,9 @@ export default function SearchForm() {
         backgroundColor={useToken('colors', 'secondary400')}
         w={'$full'}
         borderRadius={'$full'}
+        mb={'$2'}
       >
-        <ButtonText fontSize={'$lg'} fontFamily="Urbanist-Bold">
+        <ButtonText fontSize={'$lg'} {...fontBoldConfig}>
           Limpiar Búsqueda
         </ButtonText>
       </Button>
