@@ -11,20 +11,27 @@ Básicamente estamos hablando de una aplicación que lista películas y el detal
 La api que usaremos para obtener los datos de las películas es la siguiente: http://www.omdbapi.com/
 
 ## Requisitos de la Aplicación:
+
 ### Buscador;
+
 La aplicación debe contar con un buscador y un filtro en el cual se consulte al servidor buscando por:
+
 - Título
 - Año
 
 ### Listado;
+
 Cada item del listado debe contener los siguientes datos:
+
 - Imagen
 - Titulo
 - Rating
 - Descripción corta
 
 ### Pantalla de la película;
+
 Al tocar un item del listado se debe navegar a la pantalla donde se pueden ver mas detalles de la película, tales como:
+
 - Imagen/es
 - Nombre
 - Rating
@@ -36,6 +43,7 @@ Al tocar un item del listado se debe navegar a la pantalla donde se pueden ver m
 Se puede utilizar gestores de estado (redux, zustand, MobX, etc).
 
 Se tendrá en cuenta para la evaluación:
+
 - Buenas prácticas
 - Técnicas de mejoras de rendimiento
 - Typescript
@@ -54,7 +62,7 @@ Se tendrá en cuenta para la evaluación:
 
 ## Link de Presentación del Proyecto
 
-https://www.loom.com/share/
+https://www.loom.com/share/8b18653f978d43d7a9bf129a5b7bb068?sid=34046f11-475a-4a10-b6de-e985b2f3cc00
 
 ## Instalação
 
