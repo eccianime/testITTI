@@ -1,10 +1,10 @@
-import { AppStateProps, ListStateProps } from '.';
+import { AppStateProps, DetailsStateProps, ListStateProps } from '.';
 import store from '../redux';
 
 export type AppState = {
   app: AppStateProps;
   list: ListStateProps;
-  //   details: DetailsStateProps;
+  details: DetailsStateProps;
 };
 
 export type RootState = ReturnType<typeof store.getState>;
