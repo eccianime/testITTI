@@ -1,5 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axiosRequest from '../../config/request';
+import { MovieProps } from '../../types';
+import { setData } from './slice';
 
 type GetMoviesPayload = {
   title: string;
@@ -10,14 +12,18 @@ export const getMovies = createAsyncThunk(
   'list/getMovies',
   async ({ title, year }: GetMoviesPayload, thunkAPI) => {
     try {
-      const resp = await axiosRequest(`&s=${title}&y=${year}`);
-      if (resp.Response.True) {
-        thunkAPI.fulfillWithValue(resp.Response.Search);
+      const resp = await axiosRequest(`&s=${title.toLowerCase()}&y=${year}`);
+      if (resp?.Response === 'True') {
+        console.log('true');
+        thunkAPI.dispatch(setData(resp.Search));
       } else {
-        thunkAPI.rejectWithValue([]);
+        console.log('false');
+        thunkAPI.dispatch(setData([]));
       }
     } catch (error) {
-      thunkAPI.rejectWithValue([]);
+      console.log(error);
+      console.log('error');
+      thunkAPI.dispatch(setData([]));
     }
   }
 );
