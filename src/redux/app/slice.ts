@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { AppStateProps } from '../../types';
+import { getMovies } from '../list/actions';
 
 const initialState: AppStateProps = {
   isLoading: false,
@@ -13,6 +14,14 @@ export const appSlice = createSlice({
       state.isLoading = action.payload;
     },
   },
+  extraReducers: (builder) =>
+    builder
+      .addCase(getMovies.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addMatcher(getMovies.settled, (state) => {
+        state.isLoading = false;
+      }),
 });
 
 export const { setLoading } = appSlice.actions;

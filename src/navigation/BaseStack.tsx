@@ -1,17 +1,16 @@
+import { useToken } from '@gluestack-style/react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { List, Details } from '../screens';
-import { useTheme } from '@react-navigation/native';
+import { Details, List } from '../screens';
 
 const { Navigator, Screen } = createStackNavigator();
 
 export default function BaseStack() {
-  const { colors } = useTheme();
   return (
     <Navigator
       screenOptions={{
         headerShown: false,
         cardStyle: {
-          backgroundColor: colors.background,
+          backgroundColor: useToken('colors', 'white'),
         },
       }}
     >

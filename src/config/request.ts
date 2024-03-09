@@ -1,12 +1,11 @@
-import axios from "axios";
+import axios from 'axios';
 
-export const BASE_URL =
-  "http://www.omdbapi.com/?apikey=584e4586&y=2024";
+export const BASE_URL = 'http://www.omdbapi.com/?apikey=584e4586';
 
-export default async function axiosRequest(url: string){
+export default async function axiosRequest(url: string) {
   try {
     const response = await axios.request({
-      method: "GET",
+      method: 'GET',
       url: BASE_URL + url,
       timeout: 15000,
     });
@@ -15,4 +14,4 @@ export default async function axiosRequest(url: string){
     console.log(error?.response?.data);
     return null;
   }
-};
+}
