@@ -1,6 +1,6 @@
 export type BaseStackProps = {
   List: undefined;
-  Details: undefined;
+  Details: { imdbID: string };
 };
 
 declare global {

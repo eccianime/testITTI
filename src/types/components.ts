@@ -8,3 +8,13 @@ export type SearchResultsProps = {
 export type MovieListItemProps = {
   data: MovieProps;
 };
+
+export type TitleAndDescriptionProps = {
+  title: string;
+  description: string;
+};
+
+export type TitleAndListProps = {
+  title: string;
+  stringList: string;
+};
