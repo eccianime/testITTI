@@ -64,9 +64,9 @@ Se tendrá en cuenta para la evaluación:
 
 https://www.loom.com/share/8b18653f978d43d7a9bf129a5b7bb068?sid=34046f11-475a-4a10-b6de-e985b2f3cc00
 
-## Instalação
+## Instalación
 
-- Clonar o projeto
+- Clonar el proyecto
 
 ```
 git clone https://github.com/eccianime/testITTI/
@@ -78,7 +78,7 @@ git clone https://github.com/eccianime/testITTI/
 cd testITTI
 ```
 
-- Instalar las dependencias com yarn ou npm e instalar las dependencias de iOS (este es un proyecto para React Native CLI)
+- Instalar las dependencias con yarn o npm e instalar las dependencias de iOS (este es un proyecto para React Native CLI)
 
 ```
 yarn
