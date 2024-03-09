@@ -1,5 +1,6 @@
 import {
   ButtonIcon,
+  Center,
   ChevronLeftIcon,
   Image,
   Pressable,
@@ -20,6 +21,8 @@ import { setData } from '../redux/details/slice';
 import { BaseStackProps } from '../types';
 
 export default function Details() {
+  const URL_REGEX =
+    /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/;
   const { imdbID } = useRoute().params as BaseStackProps['Details'];
   const { goBack } = useNavigation();
 
@@ -51,13 +54,21 @@ export default function Details() {
         paddingTop: Platform.OS === 'android' ? 0 : top,
       }}
     >
-      <Image
-        w={'100%'}
-        height={(SCREEN_WIDTH * 4) / 3}
-        source={{ uri: data.Poster }}
-        alt="Poster"
-        mb={'$2'}
-      />
+      {URL_REGEX.test(data.Poster) ? (
+        <Image
+          w={'100%'}
+          h={(SCREEN_WIDTH * 4) / 3}
+          source={{ uri: data.Poster }}
+          alt="Poster"
+          mb={'$2'}
+        />
+      ) : (
+        <Center w={'100%'} h={(SCREEN_WIDTH * 4) / 3} bg="$backgroundDarkError">
+          <Text color="$white" textAlign="center" fontSize={'$3xl'} {...fontBoldConfig}>
+            {'SIN\nIMAGEN\nDISPONIBLE'}
+          </Text>
+        </Center>
+      )}
       <Pressable
         onPress={handleBack}
         $active-opacity={'$50'}
