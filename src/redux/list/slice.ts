@@ -1,27 +1,18 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { ListStateProps, MovieProps } from '../../types';
-import { getMovies } from '../list/actions';
 
 const initialState: ListStateProps = {
-  data: [],
+  data: null,
 };
 
 export const listSlice = createSlice({
   name: 'list',
   initialState,
   reducers: {
-    setData(state, action: PayloadAction<MovieProps[]>) {
+    setData(state, action: PayloadAction<null | MovieProps[]>) {
       state.data = action.payload;
     },
   },
-  //   extraReducers: (builder) =>
-  //     builder
-  //       .addCase(getMovies.pending, (state) => {
-  //         state.isLoading = true;
-  //       })
-  //       .addMatcher(getMovies.settled, (state) => {
-  //         state.isLoading = false;
-  //       }),
 });
 
 export const { setData } = listSlice.actions;

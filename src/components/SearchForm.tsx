@@ -10,6 +10,7 @@ import {
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { getMovies } from '../redux/list/actions';
+import { setData } from '../redux/list/slice';
 
 export default function SearchForm() {
   const [movieTitle, setMovieTitle] = useState<string>('');
@@ -20,6 +21,12 @@ export default function SearchForm() {
 
   const handleSearch = () => {
     dispatch(getMovies({ title: movieTitle, year: movieYear }));
+  };
+
+  const handleClean = () => {
+    dispatch(setData(null));
+    setMovieTitle('');
+    setMovieYear('');
   };
 
   const isButtonDisabled = movieTitle.length < 3 || movieYear.length < 4 || isLoading;
@@ -37,7 +44,7 @@ export default function SearchForm() {
           Ingrese el año:
         </Text>
       </HStack>
-      <HStack justifyContent="space-between" w={'$full'} mb={'$2'}>
+      <HStack justifyContent="space-between" w={'$full'} mb={'$4'}>
         <Input variant="rounded" size="lg" flex={2}>
           <InputField
             fontFamily="Urbanist-Regular"
@@ -60,9 +67,20 @@ export default function SearchForm() {
         disabled={isButtonDisabled}
         w={'$full'}
         borderRadius={'$full'}
+        mb={'$2'}
       >
         <ButtonText fontSize={'$lg'} fontFamily="Urbanist-Bold">
           {isLoading ? 'Cargando...' : 'Buscar'}
+        </ButtonText>
+      </Button>
+      <Button
+        onPress={handleClean}
+        backgroundColor={useToken('colors', 'secondary400')}
+        w={'$full'}
+        borderRadius={'$full'}
+      >
+        <ButtonText fontSize={'$lg'} fontFamily="Urbanist-Bold">
+          Limpiar Búsqueda
         </ButtonText>
       </Button>
     </>

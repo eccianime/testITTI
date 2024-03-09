@@ -10,6 +10,11 @@ export type MovieProps = {
   Poster: string;
 };
 
+export type GetMoviesPayload = {
+  year: string;
+  title: string;
+};
+
 export type ListStateProps = {
-  data: MovieProps[];
+  data: null | MovieProps[];
 };
