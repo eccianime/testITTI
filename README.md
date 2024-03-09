@@ -1,4 +1,4 @@
-# Prueba Técnia 🏅 2024 - ITTI
+# Prueba Técnica 🏅 2024 - ITTI
 
 > Esta es una prueba técnica para la empresa ITTI
 
