@@ -3,12 +3,12 @@ import { combineReducers } from 'redux';
 
 import app from './app/slice';
 import list from './list/slice';
-// import details from './details/slice';
+import details from './details/slice';
 
 const reducer = combineReducers({
   app,
   list,
-  // details
+  details,
 });
 
 const store = configureStore({
