@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import fontBoldConfig from '../config/fontBoldConfig';
 import axiosRequest from '../config/request';
 import { MovieListItemProps } from '../types/components';
+import { useNavigation } from '@react-navigation/native';
 
 export default function MovieListItem({ data }: MovieListItemProps) {
   const URL_REGEX =
@@ -10,6 +11,12 @@ export default function MovieListItem({ data }: MovieListItemProps) {
 
   const [ratings, setRatings] = useState<{ Source: string; Value: string }[]>([]);
   const [plot, setPlot] = useState('');
+
+  const { navigate } = useNavigation();
+
+  const handleGoToDetails = () => {
+    navigate('Details', { imdbID: data.imdbID });
+  };
 
   // Esta parte no es ofrecida en la respuesta de la peticion de la lista así que es solicitada en una petición aparte
   useEffect(() => {
@@ -22,6 +29,8 @@ export default function MovieListItem({ data }: MovieListItemProps) {
 
   return (
     <Pressable
+      onPress={handleGoToDetails}
+      $active-opacity={'$50'}
       p={'$3'}
       mb={'$3'}
       borderRadius={'$md'}
